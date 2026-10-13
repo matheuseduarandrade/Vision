@@ -1,0 +1,79 @@
+{
+  "hash": "d1dc8b3a",
+  "configHash": "cadf7d99",
+  "lockfileHash": "f09148fd",
+  "browserHash": "35fea394",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "aacc70f1",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "037f2f12",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "fdfdf97b",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "eaf4c0e9",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "46424528",
+      "needsInterop": false
+    },
+    "jspdf": {
+      "src": "../../../../../../node_modules/jspdf/dist/jspdf.es.min.js",
+      "file": "jspdf.js",
+      "fileHash": "121a7ea0",
+      "needsInterop": false
+    },
+    "jspdf-autotable": {
+      "src": "../../../../../../node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.js",
+      "file": "jspdf-autotable.js",
+      "fileHash": "bb2c76e2",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "purify.es-BM3PC3KB": {
+      "file": "purify__es-BM3PC3KB.js"
+    },
+    "index.es-BQJZCREV": {
+      "file": "index__es-BQJZCREV.js"
+    },
+    "chunk-4LXBFZCK": {
+      "file": "chunk-4LXBFZCK.js"
+    },
+    "chunk-5GMVLTV5": {
+      "file": "chunk-5GMVLTV5.js"
+    },
+    "chunk-SODK3CA3": {
+      "file": "chunk-SODK3CA3.js"
+    },
+    "chunk-E4ME27IF": {
+      "file": "chunk-E4ME27IF.js"
+    },
+    "chunk-PNGFZJMY": {
+      "file": "chunk-PNGFZJMY.js"
+    },
+    "html2canvas.esm-X2LUDEIK": {
+      "file": "html2canvas__esm-X2LUDEIK.js"
+    },
+    "chunk-S35DAJRX": {
+      "file": "chunk-S35DAJRX.js"
+    }
+  }
+}

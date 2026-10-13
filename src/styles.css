@@ -1,0 +1,42 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+
+/* ---------- Tema (escuro = padrão; .light = claro) ---------- */
+:root { color-scheme: dark; --c-fg: 255 255 255; --c-v50: 234 243 255; --c-v400: 26 155 255; --c-v900: 2 26 94; --c-v950: 1 11 46; }
+.light { color-scheme: light; --c-fg: 15 23 42; --c-v50: 30 58 138; --c-v400: 10 98 208; --c-v900: 226 233 246; --c-v950: 244 247 252; }
+
+html { scroll-behavior: smooth; }
+body { transition: background-color .25s, color .25s; font-feature-settings: 'ss01', 'cv11'; }
+::selection { background: rgb(6 109 255 / .35); }
+* { scrollbar-width: thin; scrollbar-color: rgb(var(--c-fg) / .25) transparent; }
+:focus-visible { outline: 2px solid rgb(var(--c-v400)); outline-offset: 2px; }
+
+/* ---------- Fundo com brilho suave (como no modelo) ---------- */
+html.dark body { background-image: radial-gradient(1100px 520px at 88% -8%, rgb(6 109 255 / .20), transparent 62%), radial-gradient(900px 520px at -5% 105%, rgb(6 109 255 / .12), transparent 60%); background-attachment: fixed; }
+html.light body { background-image: radial-gradient(1100px 520px at 88% -8%, rgb(6 109 255 / .10), transparent 62%), radial-gradient(900px 520px at -5% 105%, rgb(6 109 255 / .06), transparent 60%); background-attachment: fixed; }
+/* gráfico de rosca com furo transparente */
+.donut { -webkit-mask: radial-gradient(farthest-side, transparent 61%, #000 62%); mask: radial-gradient(farthest-side, transparent 61%, #000 62%); }
+
+/* ---------- Acabamento ---------- */
+h2 { letter-spacing: -.02em; }
+table thead th { font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+table tbody tr { transition: background-color .15s; }
+table tbody tr:hover { background-color: rgb(var(--c-fg) / .05); }
+input:not([type=checkbox]):not([type=radio]), select { border: 1px solid rgb(var(--c-fg) / .14); transition: border-color .15s, box-shadow .15s; }
+input:not([type=checkbox]):not([type=radio]):focus, select:focus { outline: none; border-color: rgb(var(--c-v400)); box-shadow: 0 0 0 3px rgb(var(--c-v400) / .2); }
+input[type=checkbox] { accent-color: #066dff; width: 1rem; height: 1rem; }
+button { transition: background-color .15s, border-color .15s, opacity .15s, transform .1s; }
+button:not(:disabled):active { transform: scale(.98); }
+[class~="bg-vision-500"] { color: #fff; }
+.vision-page > * { animation: entra .35s ease both; }
+@keyframes entra { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.light .rounded-xl.border, .light .rounded-2xl.border { box-shadow: 0 1px 3px rgb(15 23 42 / .08); }
+.light .overflow-hidden.rounded-xl { box-shadow: 0 1px 3px rgb(15 23 42 / .1); }
+
+/* ---------- Cores de status legíveis no modo claro ---------- */
+.light .text-emerald-200, .light .text-emerald-300 { color: #047857; }
+.light .text-red-100, .light .text-red-200, .light .text-red-300 { color: #b91c1c; }
+.light .text-amber-200, .light .text-amber-300 { color: #b45309; }
+.light .text-yellow-100 { color: #854d0e; }
+.light .text-orange-100 { color: #9a3412; }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
