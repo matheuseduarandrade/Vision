@@ -81,7 +81,7 @@ const MES = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out
 
     <section class="mt-10">
       <h3 class="font-semibold">NEWFLOW — atendimentos por mês</h3>
-      <p class="text-sm text-white/60"></p>
+      <p class="text-sm text-white/60">Lançados manualmente em Configurações. Entram nos totais e índices dos operadores.</p>
       @if (d.newflow.total > 0) {
         <div class="mt-4 flex flex-wrap gap-4 text-xs">
           @for (p of d.newflow.projetos; track p.nome) { <span class="flex items-center gap-2"><span class="h-3 w-3 rounded-[3px]" [class]="corNf(p.nome)"></span>{{ p.nome }}: <strong>{{ p.total }}</strong></span> }
@@ -98,7 +98,7 @@ const MES = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out
     </section>
 
     <h3 class="mt-10 font-semibold">Demanda por turno</h3>
-    <p class="text-xs text-white/50">Turnos e clientes consideram apenas os chamados do Jira.</p>
+    <p class="text-xs text-white/50">Turnos e clientes consideram apenas os chamados do Jira (o NEWFLOW não tem horário nem cliente).</p>
     <div class="mt-3 grid lg:grid-cols-2 gap-6">
       @for (t of d.turnos; track t.nome) {
         <div class="rounded-xl border border-white/10 p-4">
@@ -111,7 +111,6 @@ const MES = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out
     </div>
 
     <h3 class="mt-10 font-semibold">Clientes mais atendidos</h3>
-    <p class="text-xs text-white/50">Considerando apenas chamados do jira.</p>
     <ul class="mt-3 max-h-96 overflow-auto space-y-1.5 pr-2">
       @for (c of barrasCli(); track c.nome) {
         <li class="flex items-center gap-3 text-sm"><span class="w-64 truncate" [title]="c.nome">{{ c.nome }}</span>

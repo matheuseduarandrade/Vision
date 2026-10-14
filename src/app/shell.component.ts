@@ -4,9 +4,10 @@ import { AuthService } from './auth.service';
 import { NavService, Grupo } from './nav.service';
 import { ThemeService } from './theme.service';
 import { IconComponent } from './icon.component';
+import { AvatarComponent } from './avatar.component';
 
 @Component({
-  selector: 'app-shell', standalone: true, imports: [RouterOutlet, RouterLink, RouterLinkActive, IconComponent],
+  selector: 'app-shell', standalone: true, imports: [RouterOutlet, RouterLink, RouterLinkActive, IconComponent, AvatarComponent],
   template: `
   <div class="min-h-screen flex">
     <aside class="sticky top-0 z-30 flex h-screen shrink-0 flex-col border-r border-white/10 bg-vision-900/60 backdrop-blur transition-[width] duration-200"
@@ -69,7 +70,7 @@ import { IconComponent } from './icon.component';
         <button (click)="tema.alternar()" class="rounded-lg p-2 hover:bg-white/10" [attr.aria-label]="tema.tema() === 'dark' ? 'Usar tema claro' : 'Usar tema escuro'"
                 [title]="tema.tema() === 'dark' ? 'Tema claro' : 'Tema escuro'"><app-icon [nome]="tema.tema() === 'dark' ? 'sol' : 'lua'" /></button>
         <div class="flex items-center gap-3 rounded-full border border-white/10 py-1 pl-1 pr-4">
-          <span class="grid h-8 w-8 place-items-center rounded-full bg-vision-500 text-xs font-bold">{{ iniciais() }}</span>
+          <app-avatar [nome]="auth.user()?.nome ?? ''" [avatar]="auth.user()?.avatar" [tam]="36" />
           <span class="hidden leading-tight sm:block"><span class="block text-sm font-semibold">{{ auth.user()?.nome }}</span>
             <span class="block text-[0.7rem] text-white/50">{{ auth.user()?.cargo }}{{ auth.user()?.setor ? ' · ' + auth.user()?.setor : '' }}</span></span>
         </div>
@@ -84,7 +85,6 @@ export class ShellComponent {
   private router = inject(Router); private host = inject(ElementRef);
   rec = signal(this.lerRec()); aberto = signal<string | null>(null);
 
-  iniciais = computed(() => (this.auth.user()?.nome || '?').split(' ').filter(Boolean).slice(0, 2).map(p => p[0]).join('').toUpperCase());
   ativoLink = (rota: string) => this.router.isActive(rota, { paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored' });
   ativo = (g: Grupo) => g.links.some(l => this.ativoLink(l.rota));
   alternar(chave: string) { this.aberto.set(this.aberto() === chave ? null : chave); }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { environment } from '../environments/environment';
 
-export interface User { email: string; nome: string; setor: string; cargo: string; admin: boolean; ativo: boolean; ultimo_acesso?: string; }
+export interface User { email: string; nome: string; setor: string; cargo: string; admin: boolean; ativo: boolean; ultimo_acesso?: string; avatar?: string; }
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

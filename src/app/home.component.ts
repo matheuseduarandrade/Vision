@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { AuthService } from './auth.service';
 import { IconComponent } from './icon.component';
+import { AvatarComponent } from './avatar.component';
 
 const MESES = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 const NEUTRO = 'border-white/10 from-white/[0.06]';
@@ -13,12 +14,15 @@ interface Num { valor: string; rotulo: string; sub?: string; rota: string; q?: R
 interface Painel { chave: string; titulo: string; icone: string; tom: string; card: string; periodo: string; cols: string; span: string; nums: Num[]; rodape: string; rota: string; erro?: string; }
 
 @Component({
-  selector: 'app-home', standalone: true, imports: [RouterLink, DatePipe, IconComponent],
+  selector: 'app-home', standalone: true, imports: [RouterLink, DatePipe, IconComponent, AvatarComponent],
   template: `
   <header class="flex flex-wrap items-end justify-between gap-4">
-    <div>
-      <h2 class="text-3xl font-bold tracking-tight">{{ saudacao() }}, {{ primeiroNome() }}</h2>
-      <p class="mt-1 text-white/60">Acompanhe os indicadores e a saúde da operação de Serviços.</p>
+    <div class="flex items-center gap-4">
+      <app-avatar [nome]="auth.user()?.nome ?? ''" [avatar]="auth.user()?.avatar" [tam]="64" />
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight">{{ saudacao() }}, {{ primeiroNome() }}</h2>
+        <p class="mt-1 text-white/60">Acompanhe os indicadores e a saúde da operação de Serviços.</p>
+      </div>
     </div>
     <div class="flex items-center gap-3 text-sm text-white/60">
       <app-icon nome="relogio" [tam]="16" />
@@ -65,7 +69,7 @@ interface Painel { chave: string; titulo: string; icone: string; tom: string; ca
   </div>`
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  private auth = inject(AuthService);
+  auth = inject(AuthService);
   d = signal<any>(null); carregando = signal(false); erro = signal(''); relogio = signal(new Date()); private timer: any;
 
   primeiroNome = () => (this.auth.user()?.nome || '').split(' ')[0];

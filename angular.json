@@ -24,6 +24,16 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "allowedCommonJsDependencies": [
+              "jspdf",
+              "html2canvas",
+              "canvg",
+              "core-js",
+              "raf",
+              "rgbcolor",
+              "dompurify",
+              "fflate"
             ]
           },
           "configurations": {
@@ -51,8 +61,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "9351941f-2bf9-4eca-b9a3-9e5e3bdfe96f"
   }
 }

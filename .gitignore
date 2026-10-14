@@ -1,5 +1,6 @@
-node_modules
-/.environment
-/.environment.exemplo
-.environment
-
+node_modules/
+dist/
+.angular/
+.vercel/
+*.log
+.DS_Store
