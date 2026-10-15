@@ -4,3 +4,12 @@ dist/
 .vercel/
 *.log
 .DS_Store
+
+# Arquivos de ambiente com dados locais ou sensíveis
+/src/environments/environment.ts
+/src/environments/environment.local.ts
+
+# Dependências e arquivos gerados
+/node_modules
+/dist
+/.angular
